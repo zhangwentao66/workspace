@@ -1,5 +1,5 @@
 server:
-  port: 56040
+  port: 57040
   #  项目虚拟路径
   servlet:
     context-path: /merchant

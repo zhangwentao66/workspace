@@ -73,7 +73,7 @@ public class QiniuUtil {
      * @param accessKey  访问密钥
      * @param secretKey  密钥
      * @param bucket     存储空间名称
-     * @param uploadBytes  要下载文件的字节数组
+     * @param uploadBytes  要上传文件的字节数组
      */
     public static String uploadImg(String accessKey, String secretKey,String bucket,byte[] uploadBytes){
         //构造一个带指定 Region 对象的配置类

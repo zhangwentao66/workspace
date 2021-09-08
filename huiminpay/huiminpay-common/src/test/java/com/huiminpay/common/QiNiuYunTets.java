@@ -1,6 +1,7 @@
 package com.huiminpay.common;
 
 import com.google.gson.Gson;
+import com.huiminpay.common.cache.util.QiniuUtil;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.Configuration;
@@ -10,26 +11,32 @@ import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 import com.qiniu.util.IOUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.UUID;
 
 public class QiNiuYunTets {
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static void main(String[] args) throws IOException {
         //上传
 //        test();
         //下载
 //        testDownLoad();
 //        System.out.println(UUID.randomUUID().toString());
+        String fileName = "FiqnsIDzNrSNRzsDPenA83TeghiX";
+        FileInputStream fileInputStream = new FileInputStream(fileName);
+        byte[] bytes = IOUtils.toByteArray(fileInputStream);
+        String zshuiminpay = QiniuUtil.uploadImg("Ku-IMDdx7DNCzc3jgv1HWdW2XTi3bqgz7Hv-rV1E"
+                , "5O5gi2P-O4szIJ8NAq24GgW0iALZ5nxk4a0FImYg"
+                , "zshuiminpay",
+                bytes);
+        System.out.println(zshuiminpay);
     }
 
     public static void test(){
         //构造一个带指定 Region范围 对象的配置类
         Configuration cfg = new Configuration(Region.huanan());
         //...其他参数参考类注释
-//域名：  qz2f0jds8.hn-bkt.clouddn.com  文件名：  FiqnsIDzNrSNRzsDPenA83TeghiX
+        //域名：  qz2f0jds8.hn-bkt.clouddn.com  文件名：  FiqnsIDzNrSNRzsDPenA83TeghiX
         UploadManager uploadManager = new UploadManager(cfg);
         //...生成上传凭证，然后准备上传
         String accessKey = "Ku-IMDdx7DNCzc3jgv1HWdW2XTi3bqgz7Hv-rV1E";

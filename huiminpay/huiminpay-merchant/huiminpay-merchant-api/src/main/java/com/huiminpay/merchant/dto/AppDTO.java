@@ -14,6 +14,7 @@ public class AppDTO implements Serializable {
 
     private Long id;
 
+    @ApiModelProperty(value = "应用id，新增时无需传入")
     private String appId;
 
     @ApiModelProperty(value = "商店名称")
